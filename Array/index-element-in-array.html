@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index-element-in-array</title>
+</head>
+
+<body>
+    <h1>Insert Element in Array </h1>
+
+    <script>
+        let arr = [2, 4, 1, 6, 4, 8, 3, 5];
+       
+        document.write(` The elements are  : ${arr} <br>`);
+        function insertElement() {
+            let element = parseInt(document.getElementById("el").value);
+            let position = parseInt(document.getElementById("pos").value) - 1;
+            for (let i = arr.length - 1; i >= position; i--) {
+                if (i >= position) {
+                    arr[i + 1] = arr[i];
+                } if (i === position) {
+                    arr[position] = element;
+                }
+            }
+            alert(` The elements after insertion are  : ${arr} <br>`);
+        }
+
+    </script>
+    <input type="text" placeholder="Enter element" id="el" />
+    <input type="text" placeholder="Enter position" id="pos" />
+    <button onclick="insertElement()">Insert</button>
+</body>
+
+</html>

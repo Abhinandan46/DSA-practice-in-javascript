@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Indirect Recursion Example</title>
+</head>
+<body>
+
+<h2>Indirect Recursion: Even / Odd</h2>
+
+<input type="number" id="num" placeholder="Enter a number">
+<button onclick="check()">Check</button>
+
+<p id="result"></p>
+
+<script>
+    function even(n) {
+        if (n === 0) return true;
+        return odd(n - 1);
+    }
+
+    function odd(n) {
+        if (n === 0) return false;
+        return even(n - 1);
+    }
+
+    function check() {
+        let n = Number(document.getElementById("num").value);
+        let res = even(n);
+        document.getElementById("result").innerText =
+            n + " is " + (res ? "Even" : "Odd");
+    }
+</script>
+
+</body>
+</html>

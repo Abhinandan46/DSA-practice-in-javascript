@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+</head>
+
+<body>
+    <h1>Search Element in Array</h1>
+    <p id="output"></p>
+    <input type="number" id="searchInput" placeholder="Enter element to search">
+    <button onclick="searchElement()">Search Element</button>
+    <script>
+        let arr = [34, 66, 23, 78, 90, 12, 45];
+        document.getElementById("output").innerText =
+            "Array: " + arr;
+        function searchElement() {
+            let elementToFind = Number(document.getElementById("searchInput").value);
+            let foundIndex = -1;
+
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] === elementToFind) {
+                    foundIndex = i;
+                    break;
+                }
+            }
+            if (foundIndex !== -1) {
+                alert(`Element found at index: ${foundIndex}`);
+            } else {
+                alert("Element not found in the array.");
+            }
+
+        }   
+    </script>
+</body>
+
+</html>
