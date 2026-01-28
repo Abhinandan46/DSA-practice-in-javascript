@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse String with stack</title>
+</head>
+<body>
+    <h1>Reverse a String using Stack</h1>
+    <script>
+        let stack = [];
+
+        function reverseString() {
+            const strInput = document.getElementById('stringInput');
+            const str = strInput.value;
+            stack = []; // Clear stack for new input
+
+            // Push each character onto the stack
+            for (let char of str) {
+                stack[stack.length] = char;
+            }
+
+            // Pop characters from the stack to form the reversed string
+            let reversedStr = '';
+            while (stack.length > 0) {
+                reversedStr += stack[stack.length - 1];
+                stack.length = stack.length - 1; // Pop operation
+            }
+
+            document.getElementById('reversedString').textContent = reversedStr;
+            strInput.value = '';
+        }
+    </script>
+    <input type="text" id="stringInput" placeholder="Enter a string to reverse">
+    <button onclick="reverseString()">Reverse String</button>
+    <h2>Reversed String:</h2>   
+    <p id="reversedString"></p>
+    
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>push pop</title>
+</head>
+<body>
+    <h1>Push and Pop Operations</h1>
+    <script>
+        let stack = [];
+
+        function pushNumber() {
+            const numInput = document.getElementById('numInput');
+            const number = parseInt(numInput.value);
+            if (!isNaN(number)) {
+               stack[stack.length] = number; 
+               // Push operation
+                updateStackDisplay();
+                numInput.value = '';
+            } else {
+                alert('Please enter a valid number.');
+            }
+        }
+
+        function popNumber() {
+            if (stack.length > 0) {
+                stack.length = stack.length - 1; 
+                // Pop operation    
+                updateStackDisplay();
+            } else {
+                alert('Stack is empty. Cannot pop.');
+            }
+        }
+
+        function updateStackDisplay() {
+            document.getElementById('stackContents').textContent = JSON.stringify(stack, null, 2);
+        }
+
+        // Initial display
+        updateStackDisplay();
+    </script>
+    <input type="number" id="numInput" placeholder="Enter a number to push">
+    <button onclick="pushNumber()">Push Number</button>
+    <button onclick="popNumber()">Pop Number</button>
+    <h2>Stack Contents:</h2>
+    <pre id="stackContents">[]</pre>
+
+</body>
+</html>
