@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Binary Tree Operations</title>
+</head>
+<body>
+  <h1>Binary Tree Practice</h1>
+  <button onclick="insertElement()">Insert Element</button>
+  <button onclick="searchElement()">Search Element</button>
+  <button onclick="printTraversals()">Print Traversals</button>
+  <div id="output"></div>
+
+  <script src="tree.js"></script>
+  <script>
+    let tree = new BinaryTree();
+
+    function insertElement() {
+      let data = prompt("Enter data to insert:");
+      if (data) {
+        tree.insert(parseInt(data));
+        document.getElementById('output').innerText = "Inserted: " + data;
+      }
+    }
+
+    function searchElement() {
+      let data = prompt("Enter data to search:");
+      if (data) {
+        let found = tree.search(parseInt(data));
+        document.getElementById('output').innerText = found ? "Found: " + data : "Not found: " + data;
+      }
+    }
+
+    function printTraversals() {
+      tree.printTraversals();
+      document.getElementById('output').innerText = "Check console for traversals";
+    }
+  </script>
+</body>
+</html>

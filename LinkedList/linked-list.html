@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linked List Operations</title>
+</head>
+<body>
+  <h1>Linked List Practice</h1>
+  <button onclick="insertElement()">Insert Element</button>
+  <button onclick="deleteElement()">Delete Element</button>
+  <button onclick="searchElement()">Search Element</button>
+  <button onclick="printList()">Print List</button>
+  <div id="output"></div>
+
+  <script src="linked-list.js"></script>
+  <script>
+    let list = new LinkedList();
+
+    function insertElement() {
+      let data = prompt("Enter data to insert:");
+      if (data) {
+        list.insert(data);
+        document.getElementById('output').innerText = "Inserted: " + data;
+      }
+    }
+
+    function deleteElement() {
+      let data = prompt("Enter data to delete:");
+      if (data) {
+        list.delete(data);
+        document.getElementById('output').innerText = "Deleted: " + data;
+      }
+    }
+
+    function searchElement() {
+      let data = prompt("Enter data to search:");
+      if (data) {
+        let found = list.search(data);
+        document.getElementById('output').innerText = found ? "Found: " + data : "Not found: " + data;
+      }
+    }
+
+    function printList() {
+      list.print();
+      document.getElementById('output').innerText = "Check console for list";
+    }
+  </script>
+</body>
+</html>

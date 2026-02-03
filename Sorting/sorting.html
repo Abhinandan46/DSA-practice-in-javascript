@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sorting Algorithms</title>
+</head>
+<body>
+  <h1>Sorting Algorithms Practice</h1>
+  <input type="text" id="arrayInput" placeholder="Enter array (comma separated)">
+  <button onclick="runBubbleSort()">Bubble Sort</button>
+  <button onclick="runSelectionSort()">Selection Sort</button>
+  <button onclick="runInsertionSort()">Insertion Sort</button>
+  <button onclick="runQuickSort()">Quick Sort</button>
+  <button onclick="runMergeSort()">Merge Sort</button>
+  <div id="output"></div>
+
+  <script src="sorting.js"></script>
+  <script>
+    function getArray() {
+      let input = document.getElementById('arrayInput').value;
+      return input.split(',').map(x => parseInt(x.trim()));
+    }
+
+    function runBubbleSort() {
+      let arr = getArray();
+      let sorted = bubbleSort([...arr]);
+      document.getElementById('output').innerText = "Bubble Sort: " + sorted.join(', ');
+    }
+
+    function runSelectionSort() {
+      let arr = getArray();
+      let sorted = selectionSort([...arr]);
+      document.getElementById('output').innerText = "Selection Sort: " + sorted.join(', ');
+    }
+
+    function runInsertionSort() {
+      let arr = getArray();
+      let sorted = insertionSort([...arr]);
+      document.getElementById('output').innerText = "Insertion Sort: " + sorted.join(', ');
+    }
+
+    function runQuickSort() {
+      let arr = getArray();
+      let sorted = quickSort([...arr]);
+      document.getElementById('output').innerText = "Quick Sort: " + sorted.join(', ');
+    }
+
+    function runMergeSort() {
+      let arr = getArray();
+      let sorted = mergeSort([...arr]);
+      document.getElementById('output').innerText = "Merge Sort: " + sorted.join(', ');
+    }
+  </script>
+</body>
+</html>

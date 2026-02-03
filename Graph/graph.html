@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Graph Operations</title>
+</head>
+<body>
+  <h1>Graph Practice</h1>
+  <button onclick="addVertex()">Add Vertex</button>
+  <button onclick="addEdge()">Add Edge</button>
+  <button onclick="dfsTraversal()">DFS Traversal</button>
+  <button onclick="bfsTraversal()">BFS Traversal</button>
+  <button onclick="printGraph()">Print Graph</button>
+  <div id="output"></div>
+
+  <script src="graph.js"></script>
+  <script>
+    let graph = new Graph();
+
+    function addVertex() {
+      let vertex = prompt("Enter vertex:");
+      if (vertex) {
+        graph.addVertex(vertex);
+        document.getElementById('output').innerText = "Added vertex: " + vertex;
+      }
+    }
+
+    function addEdge() {
+      let v1 = prompt("Enter first vertex:");
+      let v2 = prompt("Enter second vertex:");
+      if (v1 && v2) {
+        graph.addEdge(v1, v2);
+        document.getElementById('output').innerText = "Added edge: " + v1 + " - " + v2;
+      }
+    }
+
+    function dfsTraversal() {
+      let start = prompt("Enter start vertex:");
+      if (start) {
+        let result = graph.dfs(start);
+        document.getElementById('output').innerText = "DFS: " + result.join(' -> ');
+      }
+    }
+
+    function bfsTraversal() {
+      let start = prompt("Enter start vertex:");
+      if (start) {
+        let result = graph.bfs(start);
+        document.getElementById('output').innerText = "BFS: " + result.join(' -> ');
+      }
+    }
+
+    function printGraph() {
+      graph.print();
+      document.getElementById('output').innerText = "Check console for graph";
+    }
+  </script>
+</body>
+</html>
